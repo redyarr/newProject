@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/table.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user=>{%>
+            <tr>
+                <td><%=user.id%></td>
+                <td><%=user.name%></td>
+                <td><%=user.email%></td>
+                <td>
+                    <a href="/admin/<%=user.id%>/edit">Edit</a>
+                </td>
+                   
+                </td>
+                <td> 
+                <form action="/admin/<%=user.id%>/delete" method="post">
+                <button type="submit">delete</button>  </form>
+            </td>
+
+          
+            </tr>
+           
+
+        <%})%>
+            <!-- Add more rows for additional users -->
+        </tbody>
+    </table>
+</body>
+</html>

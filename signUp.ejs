@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signUp.css">
+    <title><%=title%></title>
+</head>
+<body>
+    <%- include('includes/nav.ejs') %>
+    <%if(errorMsg){%>
+    <div class="errorMsg"><%=errorMsg%></div>
+    <%}%>
+
+<form action="/signUp" method="post" class="signUp-form">
+
+    <label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+<br>
+
+<label for="email">E-mail</label>
+<input type="email" id="email" name="email" required>
+<br>
+
+<label for="password">Password</label>
+<input type="password" id="password" name="password" required>
+
+<label for="picUrl">Pp-Url</label>
+<input type="text"  id="picUrl" name="picUrl">
+
+    <input type="hidden" value="<%=csrfToken%>" name="_csrf">
+<input type="submit" >
+
+
+</form>
+
+
+
+
+
+</body>
+</html>

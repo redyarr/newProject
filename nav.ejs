@@ -1,0 +1,107 @@
+<style> 
+  /* styles.css */ 
+  * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; /* Changed '0' to 'border-box' */ 
+    color: white; 
+    text-decoration: none; 
+  } 
+  body { 
+    font-family: Arial, sans-serif; /* Added font family for better readability */ 
+  } 
+  nav { 
+    background-color: bisque; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; /* Added padding for better spacing */ 
+  } 
+  nav ul { 
+    list-style: none; /* Simplified list-style property */ 
+    display: flex; 
+    gap: 2rem; 
+    font-size: 1.2em; /* Adjusted font size for better readability */ 
+    align-items: center; 
+  } 
+  nav ul li { 
+    margin-left: 8px; 
+  } 
+  nav ul li a { 
+    padding: 10px 15px; /* Adjusted padding for better button size */ 
+    font-size: 18px; 
+    border-radius: 10px; /* Changed percentage to 'px' for proper border radius */ 
+    background-color: #b0b72e; 
+    transition: background-color 0.3s; /* Added transition for smooth hover effect */ 
+  } 
+  nav ul li a:hover { 
+    background-color: rgb(3, 53, 52); 
+  } 
+  .profile { 
+    display: flex; 
+    align-items: center; 
+  } 
+  .profile-name { 
+    color: black; /* Changed color to black for better visibility */ 
+    margin-left: 10px; /* Slightly increased margin for better spacing */ 
+    font-weight: bold; /* Added font weight for emphasis */ 
+  } 
+  #Pp { 
+    width: 4.5rem; 
+    height: 4.5rem; 
+    border-radius: 50%; /* Changed '100%' to '50%' for a perfect circle */ 
+    object-fit: cover; /* Ensures image fits within the circle */ 
+    margin-left: 15px; /* Adjusted margin for better spacing */ 
+  } 
+  .logout-form {
+    margin-left: auto; /* Moves the form to the right side of the nav bar */
+    display: flex; /* Makes the form inline with the profile name and picture */
+    align-items: center; /* Center aligns the items within the form */
+  }
+  .logout-form button {
+    padding: 10px 15px; /* Adjusted padding for better button size */
+    font-size: 18px;
+    border-radius: 10px; /* Changed percentage to 'px' for proper border radius */
+    background-color: #b0b72e;
+    transition: background-color 0.3s; /* Added transition for smooth hover effect */
+  }
+  .logout-form button:hover {
+    background-color: rgb(3, 53, 52);
+  }
+</style> 
+
+<nav> 
+  <ul> 
+    <li><a href="/">Home</a></li> 
+    <li><a href="admin/addAnime">Add Anime</a></li> 
+  </ul> 
+  <% if (isLoggedIn==false){%>
+  <div class="profile"> 
+    <h3 class="profile-name"><a href="/login" style="color: black"> Login</a></h3> 
+    <img 
+      src="https://th.bing.com/th?id=OIP.bJpr9jpclIkXQT-hkkb1KQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2&fbclid=IwAR3Zdp9grfRr2vnAYi7KxYhlUURvTYGXXOJttmZZp-312Av__6TsbvLqiwI" 
+      id="Pp" 
+      alt="profile picture" 
+    />
+  </div>
+  <% } else { %>
+    <div class="profile"> 
+      <h3 class="profile-name"><%= user.name %></h3> 
+      <img 
+        src="<%= user.picUrl %>" 
+        id="Pp" 
+        alt="<%= user.name %>" 
+      /> 
+      <form action="/logout" method="POST" class="logout-form">
+        <input type="hidden" value="<%=csrfToken%>" name="_csrf">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+ <% } %>
+</nav> 
+
+<script>
+ function redirectToLogin() {
+  window.location.href="/login"
+}
+</script>

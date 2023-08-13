@@ -1,0 +1,60 @@
+/* CSS for AnimeList */
+
+/* Set a default font family and font size */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Center align the content of the body */
+body {
+    display: flex;
+    flex-direction: column;
+  
+    min-height: 100vh;
+}
+
+/* Style for the anime image container */
+.anime-image {
+    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Style for the image inside the anime-image container */
+.anime-image img {
+    max-width: 600px;
+    height: auto;
+    position: relative;
+    right:auto;
+}
+
+/* Style for the episode box */
+.episode-box {
+    text-align: center;
+}
+
+/* Style for the episode box heading */
+.episode-box h2 {
+    background-color: rgb(106, 201, 48);
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style for the episodes list */
+.episode-box ul {
+    background-color: rgb(50, 190, 62);
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for each episode in the list */
+.episode-box li {
+    margin-bottom: 5px;
+}
+
+/* Style for the navigation (assuming it's included with the 'nav.ejs' file) */
+/* You may need to add more specific CSS rules depending on the structure of the 'nav.ejs' HTML */

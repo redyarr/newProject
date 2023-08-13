@@ -1,0 +1,71 @@
+/* CSS Code */
+
+
+.grid {
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    margin-top: 100px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .card__header {
+    margin-bottom: 10px;
+  }
+  
+  .product__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+  }
+  
+  .card__content {
+    margin-bottom: 10px;
+  }
+  
+  .product__price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .product__description {
+    margin: 0;
+  }
+  
+  .card__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+  }
+  

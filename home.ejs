@@ -1,0 +1,57 @@
+<head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/AnimeList.css">
+    <title><%=title%></title>
+</head>
+<body>
+    <%-include('includes/nav.ejs')%>
+    
+
+<main>
+  <% if (anime.length > 0) { %> 
+        <div class="grid">
+            <% for (let animes of anime) { %>
+                <a href="/animeEps/<%=animes.id%>" class="card-click">
+                <div class="card-container">
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h1 class="product__title"><%= animes.title %></h1>
+                    </header>
+
+                    <div class="card__image">
+                        <img
+                            src="<%= animes.imageUrl %>"
+                            alt="<%= animes.title %>"
+                        >
+                    </div>
+                </a>
+
+                    <div class="card__content">
+                        <h2 class="product__price"><%=animes.episodes %></h2>
+                        <p class="product__description"><%= animes.genre %></p>
+
+                        <form action="/admin/deleteCard" method="post">
+                        <input type="hidden" value="<%=animes.id%>" name="animeId">
+                        <input type="hidden" value="<%=csrfToken%>" name="_csrf">
+                            <input type="submit"  value="Delete" >
+                        </form>
+                    </div>
+
+                   <!--<div class="card__actions">
+                        <a href="/products/ejsShitHere" class="btn"></a>
+                        --> 
+                    </div>
+                    
+                </article>
+                </div>
+            <% } %>
+        </div>
+    <%} else { %>
+       <h1>No Products Found!</h1>> 
+    <% } %>
+</main>
+</body>
+</html>
